@@ -111,7 +111,7 @@ export class FacultyRepository {
     data: CreateFacultyDto,
     passwordHash: string
   ) {
-    return prisma.$transaction(async (tx) => {
+    return prisma.$transaction(async (tx: Prisma.TransactionClient) => {
       const user = await tx.user.create({
         data: {
           email: data.email,
@@ -157,7 +157,7 @@ export class FacultyRepository {
   }
 
   async update(id: string, data: UpdateFacultyDto) {
-    return prisma.$transaction(async (tx) => {
+    return prisma.$transaction(async (tx: Prisma.TransactionClient) => {
       const existing = await tx.faculty.findUnique({
         where: { id },
         select: { userId: true },
