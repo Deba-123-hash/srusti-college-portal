@@ -24,9 +24,9 @@ export const prisma =
         : [{ emit: "stdout", level: "error" }],
   });
 
-if (env.NODE_ENV === "development") {
-  globalForPrisma.prisma = prisma;
+globalForPrisma.prisma = prisma;
 
+if (env.NODE_ENV === "development") {
   // Optional: log queries in verbose debug mode if desired
   (prisma as any).$on?.("query", (e: any) => {
     logger.debug(`Prisma Query: ${e.query} [Params: ${e.params}] [Duration: ${e.duration}ms]`, {

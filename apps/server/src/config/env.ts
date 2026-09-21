@@ -39,7 +39,7 @@ const envSchema = z.object({
 
   // Infrastructure (required)
   DATABASE_URL: z.string().min(1, "DATABASE_URL is required"),
-  REDIS_URL: z.string().min(1, "REDIS_URL is required"),
+  REDIS_URL: z.string().default("redis://localhost:6379"),
 
   // JWT — required in production, optional in development (Phase 4+)
   JWT_PRIVATE_KEY: z.string().optional(),

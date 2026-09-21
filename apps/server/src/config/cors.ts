@@ -35,6 +35,11 @@ export function buildCorsOptions(): CorsOptions {
         return callback(null, true);
       }
 
+      // Allow any Vercel deployment preview / production domain
+      if (origin.endsWith(".vercel.app")) {
+        return callback(null, true);
+      }
+
       return callback(
         new Error(
           `CORS policy: Origin '${origin}' is not in the allowed list.`
