@@ -1,0 +1,32 @@
+{
+  "name": "srusti-college-portal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Srusti Academy of Management and Technology — College Portal",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev:server & npm run dev:client",
+    "dev:server": "npm run dev --workspace=apps/server",
+    "dev:client": "npm run dev --workspace=apps/client",
+    "build": "npm run build --workspace=packages/shared && npm run build --workspace=apps/server && npm run build --workspace=apps/client",
+    "typecheck": "npm run typecheck --workspace=packages/shared && npm run typecheck --workspace=apps/server && npm run typecheck --workspace=apps/client",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run test --workspace=apps/server",
+    "verify": "npm run typecheck && npm run test && npx playwright test"
+  },
+  "keywords": [
+    "srusti",
+    "college-portal",
+    "foundation"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.22.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
+  }
+}

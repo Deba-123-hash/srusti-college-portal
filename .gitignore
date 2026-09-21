@@ -1,0 +1,61 @@
+# Node dependencies
+node_modules/
+**/node_modules/
+
+# Build artifacts
+dist/
+**/dist/
+build/
+**/build/
+out/
+.next/
+
+# Environment files & secrets
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+.env.test
+apps/*/.env
+apps/*/.env.local
+apps/*/.env.*.local
+!**/.env.example
+
+# Cryptographic Keys & Certs
+*.pem
+*.key
+*.cert
+apps/server/keys/private.pem
+apps/server/keys/public.pem
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Test results & coverage
+coverage/
+**/coverage/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# OS and Editor metadata
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Scratch & temporary files
+scratch/
+.system_generated/
